@@ -1,6 +1,6 @@
-# VeriScope AI
+# P14 - The Answer Contract with a Verified Path 
 
-**VeriScope AI** is an agentic research verification tool. You ask a question;
+Our Project is an agentic research verification tool. You ask a question;
 a pipeline of agents plans it, retrieves evidence, verifies claims, detects
 contradictions, and returns a **validated Answer Contract** -- never an
 unsupported, over-confident answer.
@@ -91,7 +91,7 @@ Both are strictly additive:
   calls has a deterministic fallback, so nothing breaks if the call fails.
 - Set `DATABASE_URL` in `backend/.env` to persist investigations and the
   knowledge base in PostgreSQL instead of losing them on restart. If the
-  connection fails, VeriScope logs a warning and falls back to in-memory
+  connection fails, The system logs a warning and falls back to in-memory
   storage automatically -- it never hard-crashes on a bad `DATABASE_URL`.
 
 See **[architecture.md](architecture.md)** for how the pipeline, contract
