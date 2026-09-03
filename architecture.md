@@ -1,8 +1,8 @@
-# VeriScope AI -- Architecture
+# Architecture
 
 ## Overview
 
-VeriScope is split into an independent FastAPI backend and a Vite/React
+The system is split into an independent FastAPI backend and a Vite/React
 frontend that talks to it over HTTP. All research/verification logic lives
 in the backend; the frontend only renders state and polls for progress.
 
@@ -116,10 +116,10 @@ implementations:
 - **`InMemoryStore`** (default) -- plain Python dicts. Zero setup, resets
   on restart.
 - **`PostgresStore`** (opt-in via `DATABASE_URL`) -- persists the exact
-  same Pydantic-model JSON in a single `veriscope_kv(key, kind, value
+  same Pydantic-model JSON in a single `The system_kv(key, kind, value
   JSONB)` table. This is intentionally a key-value upgrade, not a
   relational schema fork, so agent code never needs to know which backend
-  is active. If the Postgres connection fails at startup, VeriScope logs a
+  is active. If the Postgres connection fails at startup, The system logs a
   warning and falls back to `InMemoryStore` rather than crashing.
 
 ## RAG index
