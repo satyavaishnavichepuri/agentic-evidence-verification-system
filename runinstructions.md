@@ -1,6 +1,6 @@
 # Run Instructions
 
-VeriScope AI works with **zero API keys and zero database setup**. Every
+The system AI works with **zero API keys and zero database setup**. Every
 step below marked *(optional)* is a pure enhancement -- skip it and the app
 still runs the full agentic pipeline against the seeded demo corpus.
 
@@ -29,7 +29,7 @@ cp .env.example .env
 *(optional)* Open `.env` and set:
 ```
 GEMINI_API_KEY=your-key-here
-DATABASE_URL=postgresql+psycopg2://user:pass@localhost:5432/veriscope
+DATABASE_URL=postgresql+psycopg2://user:pass@localhost:5432/The system
 ```
 
 Start the API:
@@ -41,15 +41,15 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 On startup you'll see log lines confirming the active mode, e.g.:
 
 ```
-[veriscope] Using in-memory storage (demo mode).
-[veriscope] Seed knowledge base + demo investigations loaded.
+[The system] Using in-memory storage (demo mode).
+[The system] Seed knowledge base + demo investigations loaded.
 ```
 
 or, with both optional features configured:
 
 ```
-[veriscope] Postgres storage enabled.
-[veriscope] Gemini enabled (gemini-1.5-flash).
+[The system] Postgres storage enabled.
+[The system] Gemini enabled (gemini-1.5-flash).
 ```
 
 Verify it's up: open http://localhost:8000/api/health -- you should see
@@ -106,15 +106,15 @@ remove the `psycopg2-binary` and `SQLAlchemy` lines from
 them as long as `DATABASE_URL` is left blank.
 
 **Gemini calls seem to silently do nothing**
-Check the backend startup logs for `[veriscope] Gemini configured but
+Check the backend startup logs for `[The system] Gemini configured but
 failed to initialize: ...` or `Gemini call failed, using fallback
-heuristic: ...`. VeriScope is designed to never crash on a bad Gemini
+heuristic: ...`. The system is designed to never crash on a bad Gemini
 key/quota/network error -- it logs the failure and falls back to the
 deterministic heuristic for that step, so the investigation still
 completes.
 
 **Postgres connection fails**
-Check for `[veriscope] Postgres unavailable (...); falling back to
+Check for `[The system] Postgres unavailable (...); falling back to
 in-memory store.` in the backend logs. Fix the connection string / ensure
 the database is reachable, then restart the backend.
 
@@ -125,5 +125,5 @@ a clear error. Use a text-based PDF or a `.txt`/`.md` file instead.
 
 **I want to reset the demo data**
 In-memory mode: just restart the backend process. Postgres mode: run
-`TRUNCATE veriscope_kv;` against your database, then restart the backend
+`TRUNCATE The system_kv;` against your database, then restart the backend
 so it reseeds.
