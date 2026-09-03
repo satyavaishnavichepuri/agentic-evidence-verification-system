@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  border-color: theme("colors.base.700");
+}
+
+html, body {
+  background-color: theme("colors.base.950");
+  color: theme("colors.ink.100");
+}
+
+body {
+  font-family: theme("fontFamily.sans");
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: theme("colors.base.600");
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme("colors.base.500");
+}
+
+.panel {
+  background-color: theme("colors.base.850");
+  border: 1px solid theme("colors.base.700");
+  border-radius: 0.75rem;
+  box-shadow: theme("boxShadow.panel");
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out;
+}
